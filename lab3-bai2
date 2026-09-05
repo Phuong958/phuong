@@ -1,0 +1,116 @@
+package lab3;
+import javax.swing.JOptionPane;
+
+public class bai2 extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(bai2.class.getName());
+
+    public bai2() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnTinh = new javax.swing.JButton();
+        txtSothunhat = new javax.swing.JTextField();
+        txtSothuhai = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Tính Tổng Hai Số");
+
+        jLabel2.setText("Số Thứ Nhất :");
+
+        jLabel3.setText("Số Thứ Hai :");
+
+        btnTinh.setText("Tính");
+        btnTinh.addActionListener(this::btnTinhActionPerformed);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSothunhat, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(txtSothuhai)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(btnTinh))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel1)))
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSothunhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtSothuhai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnTinh)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void btnTinhActionPerformed(java.awt.event.ActionEvent evt) {                                        
+            try {
+
+            double so1 = Double.parseDouble(txtSothunhat.getText());
+            double so2 = Double.parseDouble(txtSothuhai.getText());
+
+            double tong = so1 + so2;
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Tổng = " + tong,
+                    "Kết quả",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Vui lòng nhập số hợp lệ!",
+                    "Lỗi",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }                                       
+
+    public static void main(String args[]) 
+    {
+        java.awt.EventQueue.invokeLater(() -> new bai2().setVisible(true));
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btnTinh;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtSothuhai;
+    private javax.swing.JTextField txtSothunhat;
+    // End of variables declaration                   
+}
