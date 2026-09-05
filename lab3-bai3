@@ -1,0 +1,138 @@
+package lab3;
+import javax.swing.JOptionPane;
+
+public class bai3 extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(bai3.class.getName());
+
+    public bai3() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnGiai = new javax.swing.JButton();
+        txtSothunhat = new javax.swing.JTextField();
+        txtSothuhai = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Giải Phương Trình Bậc Nhất ");
+
+        jLabel2.setText("Hệ Số a :");
+
+        jLabel3.setText("Hệ Số b :");
+
+        btnGiai.setText("Giải");
+        btnGiai.addActionListener(this::btnGiaiActionPerformed);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSothunhat, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(txtSothuhai)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(btnGiai))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel1)))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSothunhat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtSothuhai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnGiai)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void btnGiaiActionPerformed(java.awt.event.ActionEvent evt) {                                        
+                try {
+
+            double a = Double.parseDouble(txtSothunhat.getText());
+            double b = Double.parseDouble(txtSothuhai.getText());
+
+            if (a != 0) {
+
+                double x = -b / a;
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Phuong trinh co mot nghiem:\nx = " + x,
+                        "Ket qua",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+            }
+            else if (b != 0) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Phuong trinh vo nghiem!",
+                        "Ket qua",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+            }
+            else {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Phuong tranh co vo so nghiem!",
+                        "Ket qua",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Vui long nhap a và b là so!",
+                    "Loi",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }                                       
+
+    public static void main(String args[]) 
+    {
+        java.awt.EventQueue.invokeLater(() -> new bai3().setVisible(true));
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btnGiai;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtSothuhai;
+    private javax.swing.JTextField txtSothunhat;
+    // End of variables declaration                   
+}
