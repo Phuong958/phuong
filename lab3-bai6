@@ -1,0 +1,180 @@
+package baitapchuong2;
+
+import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+
+public class Bai6 extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Bai6.class.getName());
+    public Bai6() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtTaiKhoan = new javax.swing.JTextField();
+        txtMatKhau = new javax.swing.JPasswordField();
+        btnDangNhap = new javax.swing.JButton();
+        btnNhap = new javax.swing.JButton();
+        btnThoat = new javax.swing.JButton();
+        cbQuyen = new javax.swing.JComboBox<>();
+        chkGhiNho = new javax.swing.JCheckBox();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Hệ thống Đăng Nhập");
+
+        jLabel2.setText("Tài Khoản :");
+
+        jLabel3.setText("Mật Khẩu :");
+
+        jLabel4.setText("Quyền :");
+
+        btnDangNhap.setText("Đăng Nhập");
+        btnDangNhap.addActionListener(this::btnDangNhapActionPerformed);
+
+        btnNhap.setText("Xóa");
+        btnNhap.addActionListener(this::btnNhapActionPerformed);
+
+        btnThoat.setText("Thoát");
+        btnThoat.addActionListener(this::btnThoatActionPerformed);
+
+        cbQuyen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Người Dùng" }));
+
+        chkGhiNho.setText("Ghi Nhớ Mật Khẩu");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(23, 23, 23)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMatKhau)
+                            .addComponent(cbQuyen, 0, 149, Short.MAX_VALUE)
+                            .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(btnDangNhap)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnNhap)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnThoat))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(chkGhiNho))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cbQuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(chkGhiNho)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDangNhap)
+                    .addComponent(btnNhap)
+                    .addComponent(btnThoat))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        
+        String taiKhoan = txtTaiKhoan.getText().trim();
+        String matKhau = new String(txtMatKhau.getPassword());
+        String quyen = cbQuyen.getSelectedItem().toString();
+
+        if (taiKhoan.isEmpty()) {
+            JOptionPane.showMessageDialog( this, "Vui lòng nhập tài khoản!" );
+            txtTaiKhoan.requestFocus();
+            return;
+        }
+
+        if (matKhau.isEmpty()) {
+            JOptionPane.showMessageDialog( this, "Vui lòng nhập mật khẩu!" );
+            txtMatKhau.requestFocus();
+            return;
+        }
+
+        if (taiKhoan.equals("admin") && matKhau.equals("123456") && quyen.equals("Admin")) {
+            JOptionPane.showMessageDialog( this, "Đăng nhập thành công!");
+        } else {
+            JOptionPane.showMessageDialog( this, "Sai tài khoản, mật khẩu hoặc quyền!");
+        }
+    }                                           
+
+    private void btnNhapActionPerformed(java.awt.event.ActionEvent evt) {                                        
+
+        txtMatKhau.setText("");
+        cbQuyen.setSelectedIndex(0);
+        chkGhiNho.setSelected(false);
+
+        txtTaiKhoan.requestFocus();
+    }                                       
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {                                         
+
+        int luaChon = JOptionPane.showConfirmDialog( this, "Bạn có muốn thoát không?", "Xác nhận", JOptionPane.YES_NO_OPTION );
+
+        if (luaChon == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }                                        
+
+    
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(() -> new Bai6().setVisible(true));
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btnDangNhap;
+    private javax.swing.JButton btnNhap;
+    private javax.swing.JButton btnThoat;
+    private javax.swing.JComboBox<String> cbQuyen;
+    private javax.swing.JCheckBox chkGhiNho;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField txtMatKhau;
+    private javax.swing.JTextField txtTaiKhoan;
+    // End of variables declaration                   
+}
